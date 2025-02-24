@@ -73,7 +73,7 @@ Después de ejecutar el código, se generará un archivo llamado `simulacion_gra
 ## Capturas de Pantalla
 
 1. **Ejecución del Código**  
-   ![Ejecución del Código](img/ejecucion.png)
+   ![Ejecución del Código](img/Ejecucion.png)
 
 2. **Hoja 1 del Archivo Excel (Ejemplo 1: Pila)**  
    ![Hoja 1 - Ejemplo 1](img/excel1.png)
