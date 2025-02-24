@@ -1,91 +1,100 @@
-# Mini Analizador Sintáctico
+# Simulación de Gramáticas con Python
 
-Este proyecto es un **mini analizador sintáctico** implementado en C++. Su objetivo es procesar cadenas de entrada según una gramática simple y generar un archivo CSV con los resultados. El programa utiliza una pila para procesar la entrada y verifica si las cadenas cumplen con las reglas gramaticales definidas.
-
----
-
-## Funcionalidades
-
-1. **Verificación sintáctica**:
-   - El programa verifica si una cadena de entrada cumple con una gramática simple:
-     - Solo se permiten letras (`a-z`, `A-Z`) y el símbolo `+`.
-     - No se permiten dos `+` consecutivos.
-
-2. **Procesamiento de la entrada**:
-   - **Ejemplo 1**: Procesa la cadena `Hola+Mundo` usando una pila. Ignora los símbolos `+` y apila solo las letras. Luego, realiza operaciones como `top` y `pop`.
-   - **Ejemplo 2**: Procesa la cadena `a+b+c+d+e+f`. Ignora los símbolos `+` y muestra los caracteres restantes.
-
-3. **Generación de un archivo CSV**:
-   - El programa genera un archivo CSV (`mini_analizador_sintactico.csv`) con los resultados de ambos ejercicios.
+Este proyecto simula el comportamiento de dos ejercicios relacionados con pilas y análisis léxico, generando un archivo Excel con los resultados. A continuación, se explica el funcionamiento del código y cómo utilizarlo.
 
 ---
 
-## Estructura del código
+## Descripción del Proyecto
 
-El código está organizado en las siguientes funciones:
+El proyecto consta de dos partes principales:
 
-1. **`esValida`**:
-   - Verifica si una cadena de entrada cumple con la gramática definida.
+### 1. Simulación de una Pila
+   - Implementa una pila utilizando la clase `Pila`.
+   - Permite realizar operaciones como `push`, `pop`, `top` y `muestra`.
+   - Los resultados de las operaciones se registran en un archivo Excel.
 
-2. **`ejemplo1`**:
-   - Procesa la cadena `Hola+Mundo` usando una pila y realiza operaciones como `top` y `pop`.
-
-3. **`ejemplo2`**:
-   - Procesa la cadena `a+b+c+d+e+f` y muestra los caracteres restantes.
-
-4. **`main`**:
-   - Ejecuta los ejemplos y genera el archivo CSV.
-
----
-
-## Ejecución del programa
-
-### Captura de pantalla del código en ejecución
-
-![Ejecución del programa](img/Ejecucion.png)
-
-*Nota: La captura de pantalla muestra la salida en la terminal al ejecutar el programa.*
-
----
-
-### Formato del archivo CSV generado
-
-El archivo `mini_analizador_sintactico.csv` tiene el siguiente formato:
-
-| Ejercicio      | Entrada         | Resultado         |
-|----------------|-----------------|-------------------|
-| Ejercicio 1    | Hola+Mundo      | H o l a M u n d o |
-| Ejercicio 1 Tope | Hola+Mundo    | o                 |
-| Ejercicio 1 Tope | Hola+Mundo    | o                 |
-| Ejercicio 1 Pop | Hola+Mundo     | o                 |
-| Ejercicio 1 Pop | Hola+Mundo     | l                 |
-| Ejercicio 2    | a+b+c+d+e+f     | a b c d e f       |
-
----
-
-### Captura de pantalla del archivo CSV
-
-![Archivo CSV](img/Excel.png)
-
-*Nota: La captura de pantalla muestra el archivo CSV abierto en Excel.*
+### 2. Análisis Léxico
+   - Implementa un analizador léxico con la clase `Lexico`.
+   - Simula la lectura de símbolos de una cadena de entrada.
+   - Los símbolos leídos se registran en un archivo Excel.
 
 ---
 
 ## Requisitos
 
-- Compilador de C++ (por ejemplo, `g++`).
-- Estándar C++11 o superior (para soportar bucles de rango).
+Para ejecutar este proyecto, necesitas:
+
+- Python 3.x instalado.
+- La siguiente biblioteca de Python:
+  - `openpyxl` (para generar archivos Excel).
+
+Puedes instalar la dependencia ejecutando:
+
+```bash
+pip install openpyxl
+```
 
 ---
 
-## Compilación y ejecución
+## Estructura del Código
 
-1. Clona el repositorio o descarga el archivo `MiniAnalizadorSintactico.cpp`.
-2. Compila el programa con el siguiente comando:
+### Clases y Funciones
 
-   ```bash
-   g++ MiniAnalizadorSintactico.cpp -o MiniAnalizadorSintactico -std=c++11
+- **Clase `Pila`**: Implementa una pila con métodos como `push`, `pop`, `top`, `muestra` e `is_empty`.
+- **Clase `Lexico`**: Implementa un analizador léxico que lee símbolos de una cadena de entrada.
+- **Función `ejemplo1`**: Simula operaciones con una pila y devuelve los resultados en formato de lista.
+- **Función `ejemplo2`**: Simula el análisis léxico de una cadena y devuelve los símbolos leídos.
 
-   ```bash
-   ./MiniAnalizadorSintactico
+### Generación del archivo Excel
 
+Se utiliza la biblioteca `openpyxl` para crear un archivo Excel con dos hojas:
+
+- **Ejemplo1**: Contiene los resultados de las operaciones con la pila.
+- **Ejemplo2**: Contiene los símbolos leídos por el analizador léxico.
+
+---
+
+## Ejecución del Código
+
+Para ejecutar el código, sigue estos pasos:
+
+1. Clona o descarga el repositorio.
+2. Abre una terminal en la carpeta del proyecto.
+3. Ejecuta el siguiente comando:
+
+```bash
+python main.py
+```
+
+Después de ejecutar el código, se generará un archivo llamado `simulacion_gramaticas.xlsx` en la misma carpeta.
+
+---
+
+## Capturas de Pantalla
+
+1. **Ejecución del Código**  
+   ![Ejecución del Código](img/ejecucion.png)
+
+2. **Hoja 1 del Archivo Excel (Ejemplo 1: Pila)**  
+   ![Hoja 1 - Ejemplo 1](img/excel1.png)
+
+3. **Hoja 2 del Archivo Excel (Ejemplo 2: Análisis Léxico)**  
+   ![Hoja 2 - Ejemplo 2](img/excel2.png)
+
+---
+
+## Resultados Esperados
+
+### Archivo Excel:
+El archivo `simulacion_gramaticas.xlsx` contendrá dos hojas:
+
+- **Ejemplo1**: Muestra las operaciones realizadas con la pila y su estado en cada paso.
+- **Ejemplo2**: Muestra los símbolos leídos por el analizador léxico.
+
+### Salida en Consola:
+El programa imprimirá un mensaje indicando que el archivo Excel se ha generado correctamente.
+
+---
+
+## Autor
+Desarrollado por Brandon Chavez
